@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Menu de categorías
+{% endblock %}
+
+{% block content %}
+<header>
+    <nav>
+        <ul> 
+            <a class="Menu de categories">Menu de categories</a>
+            <li><a href="{{ url_for('home.about') }}">About</a></li>
+            <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+            {% if user %}
+            {% else %}
+        
+            {% endif %}
+            <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
+            <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
+
+
+        </ul>
+    </nav>
+<div class="logo-container">   
+    <h1 class="logo-text">Sistema de Gestión de Inventario Textilera </h1>
+    <img src="{{ url_for('static', filename='images/Logo_Testileria.png') }}" alt="Logo Testileria" class="logo">
+</div>
+<h4>¿Que deseas admimistrar hoy?</h4>
+<!-- Menú con imágenes -->
+<div class="menu-container">
+    <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/maquileros.jpg') }}" alt="Maquileros">
+        <p>Maquileros</p>
+    </div>
+    <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/proveedor.jpg') }}" alt="Proveedor">
+        <p>Proveedor</p>
+    </div>
+    <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/producto.jpg') }}" alt="Producto">
+        <p>Producto</p>
+    </div>
+    <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/telas.jpg') }}" alt="Telas">
+        <p>Telas</p>
+    </a>
+    </div>
+    <div class="menu-item">
+        <img src="{{ url_for('static', filename='images/user.jpg') }}" alt="Usuario">
+        <p>Usuario</p>
+    </div>
+</div>
+{% endblock %}
+<!--terminar de agrgar las funciones del menu de imagenes -->

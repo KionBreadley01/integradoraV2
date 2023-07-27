@@ -4,6 +4,8 @@ from models.categories import Category
 
 from forms.category_forms import CreateCategoryForm, UpdateCategoryForm
 
+
+
 category_views = Blueprint('category',__name__)
 
 @category_views.route('/categories/')

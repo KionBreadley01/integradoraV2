@@ -5,32 +5,79 @@ Login
 {% endblock title %}
     
 {% block content %}
-{% for message in get_flashed_messages() %}
-<p>{{ message }}</p>
-{% endfor %}
-<form method="post">
-    {{ form.csrf_token }}
+<style>
+    a{
+        color: black;
+    }
+    /* Estilos para la tarjeta */
+    .card {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background-image: linear-gradient(235deg, #00a5e2 0, #00a4f5 3.33%, #00a3ff 6.67%, #00a1ff 10%, #009eff 13.33%, #009bff 16.67%, #0096ff 20%, #0090ff 23.33%, #0089ff 26.67%, #0080ff 30%, #2475ff 33.33%, #7769ff 36.67%, #a25aff 40%, #c149f7 43.33%, #da33e5 46.67%, #ed0cd0 50%, #fc00ba 53.33%, #ff00a4 56.67%, #ff008d 60%, #ff0077 63.33%, #ff0061 66.67%, #ff004b 70%, #ff0035 73.33%, #ff211b 76.67%, #f73b00 80%, #ea4d00 83.33%, #dd5c00 86.67%, #cd6900 90%, #bc7300 93.33%, #aa7c00 96.67%, #978400 100%);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+
+<div class="card">
+    <h1>Login</h1>
+    {% for message in get_flashed_messages() %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    <form method="post">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.username.label }}
+            {{ form.username() }}
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password() }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
     <div>
-        {{ form.username.label }}
-        {{ form.username() }}
-        {% if form.username.errors %}
-            {% for error in form.username.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
+        <a href="{{ url_for('user.register') }}">Crear cuenta</a>
     </div>
-    <div>
-        {{ form.password.label }}
-        {{ form.password() }}
-        {% if form.password.errors %}
-            {% for error in form.password.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <div>
-        {{ form.submit(class="btn") }}
-    </div>
-</form>
+</div>
 {% endblock %}
-    

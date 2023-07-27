@@ -2,10 +2,26 @@
 
 {% block title %}
 Home Page
-{% endblock %}
-    
+{% endblock %}    
 {% block content %}
-<h1>Welcome Home</h1>
-<p>Author: franlop24</p>
+<div class="logo-container">   
+    <h1 class="logo-text">Sistema de Gestión de Inventario Textilera </h1>
+    <img src="{{ url_for('static', filename='images/Logo_Testileria.png') }}" alt="Logo Testileria" class="logo">
+</div>
+
+
+
+{% if not user %}
+    <!-- Botón para iniciar sesión -->
+    <a href="{{ url_for('user.login') }}" class="btn btn-primary">Iniciar Sesión</a>
+
+    <!-- Botón para registrarse -->
+    <a href="{{ url_for('user.register') }}" class="btn btn-secondary">Registrarse</a>
+{% else %}
+    <!-- Texto "Cerrar sesión" -->
+    <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
+<h4>¿Que deseas admimistrar hoy?</h4>
+ 
+{% endif %}
+
 {% endblock %}
-    

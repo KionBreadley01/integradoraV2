@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+        }
+    
+        form {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+    
+        input[type="text"] {
+            width: 200px;
+            padding: 4px;
+        }
+    
+        input[type="submit"] {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Productos</h1>
+
+    <!-- Formulario para agregar un nuevo producto -->
+    <form method="POST" action="/agregar_producto">
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" name="nombre" id="nombre"><br>
+
+        <label for="tipo_tela">Tipo de Tela:</label>
+        <input type="text" name="tipo_tela" id="tipo_tela"><br>
+
+        <label for="talla">Talla:</label>
+        <input type="text" name="talla" id="talla"><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+
+    <!-- Tabla que muestra los productos existentes -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID Producto</th>
+                <th>Nombre del Producto</th>
+                <th>Tipo de Tela</th>
+                <th>Talla</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id_producto }}</td>
+                <td>{{ producto.Nombre_producto }}</td>
+                <td>{{ producto.Tipo_tela }}</td>
+                <td>{{ producto.talla }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

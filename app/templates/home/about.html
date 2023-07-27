@@ -1,10 +1,42 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Acerca de 
+Acerca de Nosotros
 {% endblock %}
     
 {% block content %}
-<h1>Acerca de Page</h1>
-{% endblock %}
+<nav>
+    <ul>
+        <a class="about">About</a>
+
+        <li><a href="{{ url_for('home.about') }}">About</a></li>
+        <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+        <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
+
+        {% if user %}
+        {% else %}
     
+        {% endif %}
+        <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
+
+
+    </ul>
+</nav>
+<div class="logo-container">   
+    <h1 class="logo-text">Sistema de Gestión de Inventario Textilera </h1>
+    <img src="{{ url_for('static', filename='images/Logo_Testileria.png') }}" alt="Logo Testileria" class="logo">
+</div>
+<!-- about.html -->
+<h1 class="about-heading">Acerca de Nosotros</h1>
+<p class="about-paragraph">Somos una empresa comprometida con la calidad y la excelencia en el servicio.</p>
+
+<h2 class="about-subheading">Nuestra Misión</h2>
+<p class="about-paragraph">Nuestra misión es ofrecer soluciones innovadoras y eficientes para satisfacer las necesidades de nuestros clientes.</p>
+
+<h2 class="about-subheading">Nuestra Visión</h2>
+<p class="about-paragraph">Queremos ser líderes en el mercado, reconocidos por nuestra calidad y profesionalismo.</p>
+
+<h2 class="about-subheading">Nuestro Equipo</h2>
+<p class="about-paragraph">Contamos con un equipo altamente capacitado y comprometido, listo para brindar el mejor servicio a nuestros clientes.</p>
+
+{% endblock %}

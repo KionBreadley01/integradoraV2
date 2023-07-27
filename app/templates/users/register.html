@@ -3,48 +3,100 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<h1>Registro</h1>
-<form method="post">
-    {{ form.csrf_token }}
+
+<style>
+    a{
+        color: black;
+    }
+    form {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    .card {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform:translate(-50%, -50%);
+        width: 400px;
+        background-image: linear-gradient(235deg, #00a5e2 0, #00a4f5 3.33%, #00a3ff 6.67%, #00a1ff 10%, #009eff 13.33%, #009bff 16.67%, #0096ff 20%, #0090ff 23.33%, #0089ff 26.67%, #0080ff 30%, #2475ff 33.33%, #7769ff 36.67%, #a25aff 40%, #c149f7 43.33%, #da33e5 46.67%, #ed0cd0 50%, #fc00ba 53.33%, #ff00a4 56.67%, #ff008d 60%, #ff0077 63.33%, #ff0061 66.67%, #ff004b 70%, #ff0035 73.33%, #ff211b 76.67%, #f73b00 80%, #ea4d00 83.33%, #dd5c00 86.67%, #cd6900 90%, #bc7300 93.33%, #aa7c00 96.67%, #978400 100%);
+        border-radius: 14px;
+    }
+</style>
+<div class="card">
+    <h1>Registro</h1>
+    <form method="post">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.username.label }}
+            {{ form.username() }}
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.email.label }}
+            {{ form.email() }}
+            {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password() }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        <div>
+            {{ form.password_confirm.label }}
+            {{ form.password_confirm() }}
+            {% if form.password_confirm.errors %}
+                {% for error in form.password_confirm.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
     <div>
-        {{ form.username.label }}
-        {{ form.username() }}
-        {% if form.username.errors %}
-            {% for error in form.username.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
+        <a href="{{ url_for('user.login') }}">        Iniciar sesión</a>
     </div>
-    <div>
-        {{ form.email.label }}
-        {{ form.email() }}
-        {% if form.email.errors %}
-            {% for error in form.email.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <div>
-        {{ form.password.label }}
-        {{ form.password() }}
-        {% if form.password.errors %}
-            {% for error in form.password.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <div>
-        {{ form.password_confirm.label }}
-        {{ form.password_confirm() }}
-        {% if form.password_confirm.errors %}
-            {% for error in form.password_confirm.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <div>
-        {{ form.submit(class="btn") }}
-    </div>
-</form>
+</div>
 {% endblock %}
-    

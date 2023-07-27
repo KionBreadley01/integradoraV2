@@ -8,7 +8,7 @@ from utils.file_handler import save_image
 
 user_views = Blueprint('user', __name__)
 
-@user_views.route('/users/register/', methods=('GET', 'POST'))
+@user_views.route('/users/register/', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
 
@@ -23,7 +23,7 @@ def register():
         return redirect(url_for('user.login'))
     return render_template('users/register.html', form=form)
 
-@user_views.route('/users/login/', methods=('GET', 'POST'))
+@user_views.route('/users/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
@@ -35,9 +35,11 @@ def login():
             flash('Verifica tus Datos')
         else:
             return render_template('home/home.html', user=user)
+    
+    # Si el formulario no se ha enviado o no es válido, se muestra la página de inicio de sesión.
     return render_template('users/login.html', form=form)
 
-@user_views.route('/users/<int:id>/profile/', methods=('GET', 'POST'))
+@user_views.route('/users/<int:id>/profile/', methods=['GET', 'POST'])
 def profile(id):
     form = ProfileForm()
     user = User.__get__(id)

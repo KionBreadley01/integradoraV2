@@ -5,6 +5,25 @@ Contacto
 {% endblock %}
     
 {% block content %}
-<h1>Contact Page</h1>
+<header>
+    <nav>
+        <ul>
+            <a class="Contact Page">Contact Page</a>
+
+            <li><a href="{{ url_for('home.about') }}">About</a></li>
+            <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
+            <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
+
+            {% if user %}
+            {% else %}
+        
+            {% endif %}
+            <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
+        </ul>
+    </nav>
+    <div class="logo-container">   
+        <h1 class="logo-text">Sistema de Gestión de Inventario Textilera </h1>
+        <img src="{{ url_for('static', filename='images/Logo_Testileria.png') }}" alt="Logo Testileria" class="logo">
+    </div>
 {% endblock %}
     
