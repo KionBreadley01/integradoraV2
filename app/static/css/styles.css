@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(48, 216, 62);
+    background-color: rgb(62, 157, 160);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,7 +57,7 @@ nav li a:hover {
 }
 
 .btn-success {
-    background-color: rgb(62, 234, 117);
+    background-color: rgb(171, 62, 234);
 }
 
 .btn-warning {
@@ -88,7 +88,7 @@ nav li a:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #041daa;
     color: white;
   }
 
@@ -288,6 +288,8 @@ Contact Page{
 .menu-item {
     text-align: center;
     transition: transform 0.3s ease; /* Agregamos una transición para la animación */
+    color: #0056b3;
+
 }
 
 .menu-item img {
@@ -306,16 +308,7 @@ Contact Page{
     transform: scale(1.1); /* Aumentamos el tamaño de la imagen en 10% */
 }
 /* Estilos para el contenedor principal */
-.container {
-    max-height: 500px; /* Altura máxima del contenedor con barra de desplazamiento */
-    overflow-y: scroll; /* Añade una barra de desplazamiento vertical */
-    /* Puedes personalizar el color y otros estilos de la barra de desplazamiento si lo deseas */
-  }
-  
   /* Estilos para el contenido dentro del contenedor */
-  .container-content {
-    /* Agrega estilos adicionales para el contenido si lo deseas */
-  }
   footer {
     background-color: #020202;
     padding: 20px;
@@ -344,6 +337,322 @@ Contact Page{
     width: 30px;
     height: 30px;
   }
+  /* static/css/styles.css */
+
+.profile-image {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia superior según tu preferencia */
+    left: 10px; /* Ajusta la distancia izquierda según tu preferencia */
+    width: 40px; /* Ajusta el ancho de la imagen según tu preferencia */
+    height: 40px; /* Ajusta la altura de la imagen según tu preferencia */
+}
+
+.profile-image img {
+    width: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+}
+/* Estilos generales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #026ae0;
+    color: rgb(240, 240, 240);
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para los botones en las celdas de acción */
+  td a {
+    display: inline-block;
+    padding: 5px;
+    margin-right: 5px;
+    color: #007bff;
+  }
+  
+  td a:hover {
+    color: #0056b3;
+  }
+  
+  td button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #007bff;
+  }
+  
+  td button:hover {
+    color: #0056b3;
+  }
+  
+  /* Estilos para el ícono de "fa-trash" */
+  td .fa-trash {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el ícono de "fa-refresh" */
+  td .fa-refresh {
+    font-size: 20px;
+    animation: spin 2s infinite linear;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* Estilos para el botón en la esquina superior derecha */
+li.right {
+    position: absolute;
+    top: -0;
+    right: 0;
+    margin: 10px;
+}
+
+/* Estilos adicionales para aplicar al botón */
+li.right a {
+    /* Añade tus estilos aquí, por ejemplo: */
+    background-color: #3d8b57;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+#maquilero{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #maquilerotd, #maquilero th {
+    border: 4px solid #ddd;
+    padding: 8px;
+  }
+  
+  #maquilero tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #maquilero tr:hover {background-color: #0679fd05;}
+  
+  #maquilero{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #041daa;
+    color: rgb(209, 176, 240);
+  }
+
+  .fa-trash {
+    color: red;
+  }
+  
+  .fa-refresh {
+    color: green;
+  }
+
+table form {
+    display: inline-block;
+}
+
+table a {
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+
+
+
+
+#productos {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #productos td, #productos th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #productos tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #productos tr:hover {background-color: #ddd;}
+  
+  #productos th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aa3b;
+    color: white;
+  }
+
+  .fa-trash {
+    color: red;
+  }
+  
+  .fa-refresh {
+    color: green;
+  }
+
+table form {
+    display: inline-block;
+}
+
+table a {
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+
+
+#entrada_tela {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #entrada_tela td, #entrada_tela th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #entrada_tela tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #entrada_tela tr:hover {background-color: #ddd;}
+  
+  #entrada_tela th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #df9c0e;
+    color: white;
+  }
+
+  .fa-trash {
+    color: red;
+  }
+  
+  .fa-refresh {
+    color: green;
+  }
+
+table form {
+    display: inline-block;
+}
+
+table a {
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+#proveedor {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #proveedor td, #proveedor th {
+    border: 4px solid #ddd;
+    padding: 8px;
+  }
+  
+  #proveedor tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #proveedor tr:hover {background-color: #ddd;}
+  
+  #proveedor th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e90e69;
+    color: white;
+  }
+
+  .fa-trash {
+    color: red;
+  }
+  
+  .fa-refresh {
+    color: green;
+  }
+
+table form {
+    display: inline-block;
+}
+
+table a {
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+/*estilos para el create_maq*/
+    .maquilero-form {
+        margin-top: 20px;
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        align-content: center;
+    }
+    .maquilero-form .form-group {
+        margin-bottom: 15px;
+    }
+
+  
+
+  
+
+  
+
+
+
+
+
+
     
 
 

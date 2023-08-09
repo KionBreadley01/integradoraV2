@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+proveedores categories
+{% endblock %}
+    
+{% block content %}
+<h1>proveedores  </h1>
+<li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
+
+<table id="proveedor">
+    <thead>
+        <tr>
+            <th>ID Proveedor</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Dirección</th>
+            <th>ID Tela</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{ proveedor.id_proveedor }}</td>
+            <td>{{ proveedor.nombre }}</td>
+            <td>{{ proveedor.Ape_pat }}</td>
+            <td>{{ proveedor.Ape_mat }}</td>
+            <td>{{ proveedor.Direccion }}</td>
+            <td>{{ proveedor.id_tela }}</td>
+            <td>
+                <a href="{{ url_for('tela.update_proveedor', id=proveedor.id_proveedor) }}">  
+                    <i class="fa fa-refresh fa-spin"></i>
+                </a>
+                <form action="{{ url_for('tela.delete_proveedor', id=proveedor.id_proveedor) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit"
+                    onclick="return confirm('seguro?')">
+                    <i class="fa fa-trash"></i>>
+                </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

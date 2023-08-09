@@ -10,6 +10,14 @@ from views.category_views import category_views
 from views.error_views import error_views
 from views.menu_views import menu_views  # Importamos el Blueprint que contiene la vista del menú
 from views.tela_views import tela_views  # Importamos el Blueprint de tela
+from views.maquilero_views import maquilero_views
+from views.proveedores_views import proveedores_views  # Importa la vista de proveedores
+from views.productos_views import productos_views
+
+
+
+
+
 
 
 
@@ -52,7 +60,6 @@ def register():
 def logout():
     # Aquí puedes agregar la lógica para cerrar la sesión del usuario
     # Por ejemplo, podrías eliminar la información de la sesión o la cookie de autenticación.
-    flash('Logout successful', 'success')  # Muestra un mensaje de éxito cuando el usuario cierra sesión
     return redirect(url_for('home.home'))  # Redirecciona al usuario a la página de inicio
 
 
@@ -63,6 +70,14 @@ app.register_blueprint(user_views)
 app.register_blueprint(error_views)
 app.register_blueprint(menu_views)
 app.register_blueprint(tela_views)  # Registramos el Blueprint de tela
+app.register_blueprint(maquilero_views)
+app.register_blueprint(proveedores_views)
+app.register_blueprint(productos_views)
+
+
+
+
+
 
 
 

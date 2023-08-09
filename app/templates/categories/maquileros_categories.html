@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Maquileros
+{% endblock %}
+    
+{% block content %}
+<h1>Maquileros Page</h1>
+<h2>Lista de Maquileros</h2>
+<a href="{{ url_for('maquilero.create_maquilero') }}" class="btn btn-success">Nuevo Maquilero</a>
+<table id="maquilero">
+    <thead>
+        <tr>
+            <th>ID Maquilero</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for maquilero in maquileros %}
+            <tr>
+                <td>{{ maquilero.id_maquilero }}</td>
+                <td>{{ maquilero.nombre }}</td>
+                <td>{{ maquilero.Ape_pat }}</td>
+                <td>{{ maquilero.Ape_mat }}</td>
+                <td>{{ maquilero.Direccion }}</td>
+                <td>
+                    <a href="{{ url_for('maquilero.update_maq', id=maquilero.id_maquilero) }}">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </a>
+                    <form method="post" action="{{ url_for('maquilero.delete_maq', id=maquilero.id_maquilero) }}">
+                        <button type="submit"
+                            onclick="return confirm('¿Estás seguro de eliminar este maquilero?')">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

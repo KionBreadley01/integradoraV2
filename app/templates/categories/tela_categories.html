@@ -1,9 +1,46 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block title %}
-tela categories
-{% endblock %}
-    
-{% block content %}
+    {% block title %}
+    tipo tela 
+    {% endblock %}
+        
+    {% block content %}
+    <h1>entrada de Telas </h1>
+    <li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
+    <table id="entrada_tela">
+        <thead>
+            <tr>
+                <th>ID Proveedor</th>
+                <th>ID Tela</th>
+                <th>Tela</th>
+                <th>Metros</th>
+                <th>Fecha de Entrada</th>
+                <th>Actions</th>
 
-{% endblock %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for entrada in entradas %}
+            <tr>
+                <td>{{ entrada.id_proveedor }}</td>
+                <td>{{ entrada.id_tela }}</td>
+                <td>{{ entrada.tela }}</td>
+                <td>{{ entrada.metros }}</td>
+                <td>{{ entrada.fecha_entrada }}</td>
+                <td>
+                    <a href="{{ url_for('tela.update_tela', id=entrada.id) }}">  
+                         <i class="fa fa-refresh fa-spin"></i>
+                    </a>
+                    <form action="{{ url_for('tela.delete_tela', id=entrada.id) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"
+                        onclick="return confirm('seguro?')">
+                        <i class="fa fa-trash"></i>>
+                    </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

@@ -6,7 +6,8 @@ Menu de categorías
 
 {% block content %}
 <header>
-    <nav>
+    <nav> 
+        
         <ul> 
             <a class="Menu de categories">Menu de categories</a>
             <li><a href="{{ url_for('home.about') }}">About</a></li>
@@ -17,6 +18,10 @@ Menu de categorías
             {% endif %}
             <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
             <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
+
+            
+            
+
 
 
         </ul>
@@ -29,26 +34,30 @@ Menu de categorías
 <!-- Menú con imágenes -->
 <div class="menu-container">
     <div class="menu-item">
+        <a href="{{ url_for('maquilero.maquilero') }}">
         <img src="{{ url_for('static', filename='images/maquileros.jpg') }}" alt="Maquileros">
+        </a>
         <p>Maquileros</p>
     </div>
     <div class="menu-item">
+        <a href="{{ url_for('proveedor.proveedores_categories') }}">
         <img src="{{ url_for('static', filename='images/proveedor.jpg') }}" alt="Proveedor">
+        </a>
         <p>Proveedor</p>
     </div>
     <div class="menu-item">
+        <a href="{{ url_for('productos.productos_categories') }}">
+
         <img src="{{ url_for('static', filename='images/producto.jpg') }}" alt="Producto">
+        </a>
         <p>Producto</p>
     </div>
     <div class="menu-item">
+        <a href="{{ url_for('tela.tela_categories') }}">
         <img src="{{ url_for('static', filename='images/telas.jpg') }}" alt="Telas">
-        <p>Telas</p>
     </a>
+    <p>Telas</p>
     </div>
-    <div class="menu-item">
-        <img src="{{ url_for('static', filename='images/user.jpg') }}" alt="Usuario">
-        <p>Usuario</p>
-    </div>
-</div>
+   
 {% endblock %}
 <!--terminar de agrgar las funciones del menu de imagenes -->

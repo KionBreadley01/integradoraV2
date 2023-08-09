@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+productos categories
+{% endblock %}
+    
+{% block content %}
+<h1>productos</h1>
+<li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
+<table id="productos">
+    <thead>
+        <tr>
+            <th>ID Producto</th>
+            <th>Nombre Producto</th>
+            <th>Tipo de Tela</th>
+            <th>Talla</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.Nombre_producto }}</td>
+            <td>{{ producto.Tipo_tela }}</td>
+            <td>{{ producto.talla }}</td>
+            <td>
+                <!-- Enlace para editar el producto -->
+                <a href="{{ url_for('editar_producto', id=producto.id_producto) }}">Editar</a>
+
+                <!-- Formulario para eliminar el producto -->
+                <form action="{{ url_for('eliminar_producto', id=producto.id_producto) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit"
+                    onclick="return confirm('seguro?')">
+                    <i class="fa fa-trash"></i>>
+                </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

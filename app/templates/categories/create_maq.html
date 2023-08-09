@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Agregar Maquilero
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Agregar Maquilero</h1>
+                    <form method="post">
+                        {{ form.csrf_token }}
+                        <div class="form-group">
+                            {{ form.nombre.label }}
+                            {{ form.nombre(placeholder="Nombre", class="form-control") }}
+                            {% if form.nombre.errors %}
+                            {% for error in form.nombre.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.Ape_pat.label }}
+                            {{ form.Ape_pat(placeholder="Apellido Paterno", class="form-control") }}
+                            {% if form.Ape_pat.errors %}
+                            {% for error in form.Ape_pat.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.Ape_mat.label }}
+                            {{ form.Ape_mat(placeholder="Apellido Materno", class="form-control") }}
+                            {% if form.Ape_mat.errors %}
+                            {% for error in form.Ape_mat.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.Direccion.label }}
+                            {{ form.Direccion(placeholder="Dirección", class="form-control") }}
+                            {% if form.Direccion.errors %}
+                            {% for error in form.Direccion.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group text-center">
+                            {{ form.submit(class="btn btn-success") }}
+                            <a href="{{ url_for('maquilero.maquilero') }}" class="btn btn-warning ml-2">Regresar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

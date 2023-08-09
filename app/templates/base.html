@@ -8,16 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>{% block title %}{% endblock %}</title>
-    
-
 </head>
 <body>
     {% if user %}
     <!-- Barra de navegación para usuarios autenticados -->
     <header>
         <nav>
+            <div class="profile-image">
+                <a href="{{ url_for('user.profile', id=user.id) }}">
+                <img src="{{ url_for('static', filename='images/profileuser.jpeg') }}" alt="Profile Image">
+            </a>
+            </div>
             <ul>
-                <li><a href="{{ url_for('home.home') }}">Home</a></li>
                 <li><a href="{{ url_for('home.about') }}">About</a></li>
                 <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
                 {% if user %}
@@ -28,13 +30,11 @@
                 <li><a href="{{ url_for('category.categories') }}">Categories</a></li>
 
                 <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
-                
-
             </ul>
         </nav>
     </header>
     {% endif %} 
-    <section class="container">
+    <section>
         {% block content %}
         {% endblock %}
     </section>
@@ -55,7 +55,7 @@
                 </a>
             </div>
         </div>
-        <p>&copy; Gōruden'neko. Todos los derechos reservados.</p>
+        <p>&copy; Kion technology S.A . Todos los derechos reservados.</p>
     </footer>
     <!--agregarle una barra de desplasamiento y que la informacion del footer reste a lo ANCHO Y SI A LO largo -->
 </body>
