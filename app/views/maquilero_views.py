@@ -9,9 +9,9 @@ maquilero_views = Blueprint('maquilero', __name__)
 
 @maquilero_views.route('/maquileros/')
 def maquilero():
-    maquilero_list = Maquilero.get_all()
+    maquileros = Maquilero.get_all() 
     return render_template('categories/maquileros_categories.html',
-                            maquilero=maquilero_list)
+                            maquileros=maquileros)
 
 @maquilero_views.route('/maquileros/create/', methods=('GET', 'POST'))
 def create_maquilero():
@@ -41,10 +41,11 @@ def update_maquilero(id):
     form.Ape_pat.data = maquilero.Ape_pat
     form.Ape_mat.data = maquilero.Ape_mat
     form.Direccion.data = maquilero.Direccion
-    return render_template('maquilero/create_maq.html', form=form)
+    return render_template('categories/create_maq.html', form=form)
 
 @maquilero_views.route('/maquileros/<int:id>/delete/', methods=('POST',))
 def delete_maquilero(id):
     maquilero = Maquilero.get(id)
     maquilero.delete()
     return redirect(url_for('maquilero.maquilero'))
+

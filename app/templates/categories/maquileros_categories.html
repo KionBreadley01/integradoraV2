@@ -5,10 +5,12 @@ Maquileros
 {% endblock %}
     
 {% block content %}
-<h1>Maquileros Page</h1>
+<h1>pagina de maquileros</h1>
 <h2>Lista de Maquileros</h2>
+<li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
 <a href="{{ url_for('maquilero.create_maquilero') }}" class="btn btn-success">Nuevo Maquilero</a>
-<table id="maquilero">
+<div class="table-responsive-md">
+<table id="maquilero"class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID Maquilero</th>
@@ -17,6 +19,7 @@ Maquileros
             <th>Apellido Materno</th>
             <th>Dirección</th>
             <th>Acciones</th>
+           
         </tr>
     </thead>
     <tbody>
@@ -28,10 +31,10 @@ Maquileros
                 <td>{{ maquilero.Ape_mat }}</td>
                 <td>{{ maquilero.Direccion }}</td>
                 <td>
-                    <a href="{{ url_for('maquilero.update_maq', id=maquilero.id_maquilero) }}">
+                    <a href="{{ url_for('maquilero.update_maquilero', id=maquilero.id_maquilero) }}">
                         <i class="fa fa-refresh fa-spin"></i>
                     </a>
-                    <form method="post" action="{{ url_for('maquilero.delete_maq', id=maquilero.id_maquilero) }}">
+                    <form method="post" action="{{ url_for('maquilero.delete_maquilero', id=maquilero.id_maquilero) }}">
                         <button type="submit"
                             onclick="return confirm('¿Estás seguro de eliminar este maquilero?')">
                             <i class="fa fa-trash"></i>
@@ -42,4 +45,5 @@ Maquileros
         {% endfor %}
     </tbody>
 </table>
+</div>
 {% endblock %}

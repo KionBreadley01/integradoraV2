@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Agregar Entrada de Tela
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="card mx-auto mt-5" style="max-width: 400px;">
+        <div class="card-header">
+            <h1 class="text-center">Agregar Entrada de Tela</h1>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.id_proveedor.label }}
+                    {{ form.id_proveedor(placeholder="ID Proveedor", class="form-control") }}
+                    {% if form.id_proveedor.errors %}
+                    {% for error in form.id_proveedor.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.id_tela.label }}
+                    {{ form.id_tela(placeholder="ID Tela", class="form-control") }}
+                    {% if form.id_tela.errors %}
+                    {% for error in form.id_tela.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Tela.label }}
+                    {{ form.Tela(placeholder="Tela", class="form-control") }}
+                    {% if form.Tela.errors %}
+                    {% for error in form.Tela.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Metros.label }}
+                    {{ form.Metros(placeholder="Metros", class="form-control") }}
+                    {% if form.Metros.errors %}
+                    {% for error in form.Metros.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.fecha_entrada.label }}
+                    {{ form.fecha_entrada(placeholder="Fecha de Entrada", class="form-control") }}
+                    {% if form.fecha_entrada.errors %}
+                    {% for error in form.fecha_entrada.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-success btn-block") }}
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <a href="{{ url_for('entrada_tela.entrada_tela') }}" class="btn btn-warning">Regresar</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

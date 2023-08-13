@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Agregar Tipo de Tela
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Agregar Tipo de Tela</h1>
+                    <form method="post">
+                        {{ form.csrf_token }}
+                        <div class="form-group">
+                            {{ form.id_tela(placeholder="ID de Tela", class="form-control") }}
+                            {% if form.id_tela.errors %}
+                            {% for error in form.id_tela.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.nombre_tela.label }}
+                            {{ form.nombre_tela(placeholder="Nombre de Tela", class="form-control") }}
+                            {% if form.nombre_tela.errors %}
+                            {% for error in form.nombre_tela.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.precio.label }}
+                            {{ form.precio(placeholder="Precio", class="form-control") }}
+                            {% if form.precio.errors %}
+                            {% for error in form.precio.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group text-center">
+                            {{ form.submit(class="btn btn-success") }}
+                            <a href="{{ url_for('tipo_tela.tipo_tela') }}" class="btn btn-warning ml-2">Regresar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

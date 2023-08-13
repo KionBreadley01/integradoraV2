@@ -11,7 +11,6 @@ Menu de categorías
         <ul> 
             <a class="Menu de categories">Menu de categories</a>
             <li><a href="{{ url_for('home.about') }}">About</a></li>
-            <li><a href="{{ url_for('home.contact') }}">Contact</a></li>
             {% if user %}
             {% else %}
         
@@ -47,13 +46,12 @@ Menu de categorías
     </div>
     <div class="menu-item">
         <a href="{{ url_for('productos.productos_categories') }}">
-
         <img src="{{ url_for('static', filename='images/producto.jpg') }}" alt="Producto">
         </a>
         <p>Producto</p>
     </div>
     <div class="menu-item">
-        <a href="{{ url_for('tela.tela_categories') }}">
+        <a href="{{ url_for('entrada_tela.entrada_tela') }}">
         <img src="{{ url_for('static', filename='images/telas.jpg') }}" alt="Telas">
     </a>
     <p>Telas</p>

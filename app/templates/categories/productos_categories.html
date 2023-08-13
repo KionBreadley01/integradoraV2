@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-productos categories
+Productos
 {% endblock %}
     
 {% block content %}
-<h1>productos</h1>
+<h1>Página de Productos</h1>
+<h2>Lista de Productos</h2>
 <li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
-<table id="productos">
+<a href="{{ url_for('productos.create_producto') }}" class="btn btn-success">Nuevo Producto</a>
+<div class="table-responsive-md">
+<table id="producto" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID Producto</th>
-            <th>Nombre Producto</th>
+            <th>Nombre del Producto</th>
             <th>Tipo de Tela</th>
             <th>Talla</th>
             <th>Acciones</th>
@@ -19,26 +22,25 @@ productos categories
     </thead>
     <tbody>
         {% for producto in productos %}
-        <tr>
-            <td>{{ producto.id_producto }}</td>
-            <td>{{ producto.Nombre_producto }}</td>
-            <td>{{ producto.Tipo_tela }}</td>
-            <td>{{ producto.talla }}</td>
-            <td>
-                <!-- Enlace para editar el producto -->
-                <a href="{{ url_for('editar_producto', id=producto.id_producto) }}">Editar</a>
-
-                <!-- Formulario para eliminar el producto -->
-                <form action="{{ url_for('eliminar_producto', id=producto.id_producto) }}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit"
-                    onclick="return confirm('seguro?')">
-                    <i class="fa fa-trash"></i>>
-                </button>
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <td>{{ producto.id_producto }}</td>
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.tipo_tela }}</td>
+                <td>{{ producto.talla }}</td>
+                <td>
+                    <a href="{{ url_for('productos.update_producto', id=producto.id_producto) }}">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </a>
+                    <form method="post" action="{{ url_for('productos.delete_producto', id=producto.id_producto) }}">
+                        <button type="submit"
+                            onclick="return confirm('¿Estás seguro de eliminar este producto?')">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
         {% endfor %}
     </tbody>
 </table>
+</div>
 {% endblock %}

@@ -9,19 +9,11 @@ from views.user_views import user_views
 from views.category_views import category_views
 from views.error_views import error_views
 from views.menu_views import menu_views  # Importamos el Blueprint que contiene la vista del menú
-from views.tela_views import tela_views  # Importamos el Blueprint de tela
 from views.maquilero_views import maquilero_views
 from views.proveedores_views import proveedores_views  # Importa la vista de proveedores
 from views.productos_views import productos_views
-
-
-
-
-
-
-
-
-
+from views.entrada_tela_views import entrada_tela_views
+from views.tipo_tela import tipo_tela_views
 
 
 app = Flask(__name__)
@@ -69,10 +61,12 @@ app.register_blueprint(category_views)
 app.register_blueprint(user_views)
 app.register_blueprint(error_views)
 app.register_blueprint(menu_views)
-app.register_blueprint(tela_views)  # Registramos el Blueprint de tela
 app.register_blueprint(maquilero_views)
 app.register_blueprint(proveedores_views)
 app.register_blueprint(productos_views)
+app.register_blueprint(entrada_tela_views)  # Registramos el Blueprint de entrada_tela
+app.register_blueprint(tipo_tela_views)
+
 
 
 

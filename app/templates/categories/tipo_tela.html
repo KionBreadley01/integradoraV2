@@ -1,9 +1,43 @@
+<!-- categories/templates/tipo_tela.html -->
+
 {% extends 'base.html' %}
 
 {% block title %}
-tipo de tela 
+Categorías de Tela
 {% endblock %}
     
 {% block content %}
-<h1>tipo de tala </h1>
+<h1>Categorías de Tela</h1>
+<h2>Lista de Categorías de Tela</h2>
+<li class="right"><a href="{{ url_for('menu.menu_categories') }}">Menu</a></li>
+<a href="{{ url_for('tipo_tela.create_tipo_tela') }}" >Nueva Categoría de Tela</a>
+<table id="tipo_tela" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID Tela</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tela in telas %}
+            <tr>
+                <td>{{ tela.id_tela }}</td>
+                <td>{{ tela.nombre_tela }}</td>
+                <td>{{ tela.precio }}</td>
+                <td>
+                    <a href="{{ url_for('tipo_tela.update_tipo_tela', id=tela.id_tela) }}">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </a>
+                    <form method="post" action="{{ url_for('tipo_tela.delete_tipo_tela', id=tela.id_tela) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"
+                        onclick="return confirm('seguro?')">
+                        <i class="fa fa-trash"></i>>
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

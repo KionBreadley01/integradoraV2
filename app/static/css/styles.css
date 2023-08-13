@@ -231,7 +231,8 @@ nav a:hover {
 
 /* Estilos para el texto del logo */
 .logo-text {
-    margin-right: 10px;
+    margin-left: 30px;
+    text-align: center;
 }
 
 /* Estilos para el logo */
@@ -442,20 +443,20 @@ li.right a {
   }
   
   #maquilerotd, #maquilero th {
-    border: 4px solid #ddd;
+    border: 4px solid ddds;
     padding: 8px;
   }
   
-  #maquilero tr:nth-child(even){background-color: #f2f2f2;}
+  #maquilero tr:nth-child(even){background-color: f2f2f2;}
   
-  #maquilero tr:hover {background-color: #0679fd05;}
+  #maquilero tr:hover {background-color: #ddd;}
   
   #maquilero{
-    padding-top: 12px;
+    padding-top: 18px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #041daa;
-    color: rgb(209, 176, 240);
+    background-color: white;
+    color: rgb(0, 0, 0);
   }
 
   .fa-trash {
@@ -630,12 +631,12 @@ footer {
 }
 /*estilos para el create_maq*/
     .maquilero-form {
-        margin-top: 20px;
+        margin-top: -20px;
         max-width: 400px;
         padding: 20px;
-        border: 1px solid #ccc;
+        border: 1px solid #a6e681;
         border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(221, 8, 8, 0.1);
         align-content: center;
     }
     .maquilero-form .form-group {

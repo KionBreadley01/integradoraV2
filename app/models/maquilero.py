@@ -56,7 +56,7 @@ class Maquilero:
             result = cursor.fetchall()
             for item in result:
                 maquileros.append(Maquilero(item["id_maquilero"], item["nombre"], item["Ape_pat"], item["Ape_mat"], item["Direccion"]))
-            return maquileros
+        return maquileros
     
     @staticmethod
     def count_all():
