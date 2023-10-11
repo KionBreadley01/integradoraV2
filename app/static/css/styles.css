@@ -494,7 +494,7 @@ footer {
   }
   
   #productos td, #productos th {
-    border: 1px solid #ddd;
+    border: 4px solid #ddd;
     padding: 8px;
   }
   
@@ -543,7 +543,7 @@ footer {
   }
   
   #entrada_tela td, #entrada_tela th {
-    border: 1px solid #ddd;
+    border: 4px solid #ddd;
     padding: 8px;
   }
   

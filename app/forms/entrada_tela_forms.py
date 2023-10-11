@@ -7,7 +7,7 @@ class EntradaTelaCreateForm(FlaskForm):
                                 validators=[DataRequired()])
     id_tela = IntegerField('ID Tela', 
                            validators=[DataRequired()])
- 
+
     Tela = StringField('Tela',
                         validators=[DataRequired()])
     Metros = IntegerField('Metros', 

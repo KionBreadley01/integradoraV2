@@ -14,6 +14,7 @@ def entrada_tela():
 def create_entrada_tela():
     form = EntradaTelaCreateForm()
     if form.validate_on_submit():
+        id_entrada = form.id_tela.data
         id_proveedor = form.id_proveedor.data
         id_tela = form.id_tela.data
         tela = form.Tela.data

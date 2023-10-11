@@ -10,12 +10,12 @@ Menu de categorías
         
         <ul> 
             <a class="Menu de categories">Menu de categories</a>
-            <li><a href="{{ url_for('home.about') }}">About</a></li>
+            <li><a href="{{ url_for('home.about') }}">Acerca de nosotros</a></li>
             {% if user %}
             {% else %}
         
             {% endif %}
-            <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
+            <li><a href="{{ url_for('menu.menu_categories') }}">Categorías del menú</a></li>
             <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
 
             

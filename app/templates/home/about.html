@@ -7,16 +7,16 @@ Acerca de Nosotros
 {% block content %}
 <nav>
     <ul>
-        <a class="about">About</a>
+        <a class="about">Acerca de nosotros</a>
 
-        <li><a href="{{ url_for('home.about') }}">About</a></li>
+        <li><a href="{{ url_for('home.about') }}">Acerca de nosotros</a></li>
         <a href="{{ url_for('home.home') }}" id="logout-btn" class="btn btn-danger">Cerrar Sesión</a>
 
         {% if user %}
         {% else %}
     
         {% endif %}
-        <li><a href="{{ url_for('menu.menu_categories') }}">Menu Categories</a></li>
+        <li><a href="{{ url_for('menu.menu_categories') }}">Categorías del menú</a></li>
 
 
     </ul>
